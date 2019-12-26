@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xupt.dao.EmployeeMapper">
+	<select id="getEmployee" resultType="employee">
+		select * from employee where id = #{id}
+	</select>
+	<insert id="addEmployee" useGeneratedKeys="true"  keyProperty="id" >
+		insert into employee(last_name,email,gender) values(#{lastName},#{email},#{gender})
+	</insert>
+	<update id="updateEmployee">
+		update employee set last_name=#{lastName},email=#{email},gender=#{gender} where id=#{id}
+	</update>
+	<delete id="deleteEmployee">
+		delete from employee where id=#{id}
+	</delete>
+</mapper>
